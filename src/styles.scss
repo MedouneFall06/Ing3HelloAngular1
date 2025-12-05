@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+// $primary:rgb(156, 138, 4);
+@import "ipslVariables.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+// On impotre ici bootstrap, car elle est un librairie customisable
+//Il existe des librairie non cutomisable, dans ce cas, on les met seulment dans angular.json
+
+/*
+Nb: il faut cree un fichier pour les variables: _ipslVariables.scss
+    Puis on l'importe ici: @import "ipslVariables.scss";
+*/
