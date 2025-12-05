@@ -19,9 +19,17 @@
    2-2-On telecharge le fichier bootstrap.min.css: curl https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css > pubic/bootstrap.min.css
 
    2-3- Meme chose avec le js: curl https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js > public/bootstrap.bundle.min.css
+
+   2-4- On cree les dossiers je et css on y met respectivement bootstrap.bundle.min.js et bootstrap.min.css
    
    2-4- Apres ces installation , on peut modifier les balises link(pour bootstrap.min.css) et script(pour bootstrap.bundle.min.css) comme suit:
-        link
+    
+         <link rel="stylesheet" href="public/bootstrap.min.css">
+         <script src="public/bootstrap.bundle.min.js"></script>
+
+         Et on voit que la customisation n'est pas encore utilisable meme si on utilises nos fichiers bootstrap.min.css
+         et bootstrap.undle.min.js
+         
    NB: Si on a un library qu'on ne peut pas telecharger avec npm, alors on peut utiliser la deuxieme methode. -->
 </div>
 
