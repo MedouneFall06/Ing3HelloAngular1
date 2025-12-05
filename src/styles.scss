@@ -8,4 +8,14 @@
 /*
 Nb: il faut cree un fichier pour les variables: _ipslVariables.scss
     Puis on l'importe ici: @import "ipslVariables.scss";
+
+    Maintenant que la fonctionalite config bootstrap est bien tester, on le merge dans le main.
+    Moi j'ai cree une branche nommer customisation-bootstrap mais fallait pas ca pouvait simplement un commit
+    dans la branche config-bootstrap.
+
+    Maintenant, pour merger:
+    1- on se place dans le main: git switch main
+    2- on merge: git merge config-bootstrap et git merge customisation-bootstrap 
+    
+
 */
