@@ -30,7 +30,37 @@
          Et on voit que la customisation n'est pas encore utilisable meme si on utilises nos fichiers bootstrap.min.css
          et bootstrap.undle.min.js
          
-   NB: Si on a un library qu'on ne peut pas telecharger avec npm, alors on peut utiliser la deuxieme methode. -->
+   NB: Si on a un library qu'on ne peut pas telecharger avec npm, alors on peut utiliser la deuxieme methode.
+   
+    3- La methode avec npm :
+       On supprime les dosssiers js et css dans public
+       On install bootstrap avec npm a partir de ce commande: 
+       npm i bootstrap@5.3.8 (Voir dans le site de bootstrap)
+       NB: Tous les librarie installer avec npm se trouve dans nodes_modules
+           On doit pas livrer le fichier node_modules car elle est trop lourd 
+           et elle peut etre recreer a partir du fichier packages.json
+            Raison pour laquelle, on doit l'ajouter dans .gitignore
+        
+       NB:If faut jamais modifier les modules bootstrap qui sont dans node_modules:
+          Si vous le faite, ca va marcher en local avec tes modifications
+          Mais si quelqu'un install ton app, il va perdre les modifs
+          parce bootstrap va se retelecharger et prends la version original. 
+          
+          Maintenant: 
+          1- supprimer les balise link et scrip dans index.html
+          2- Dire a angular.json les styles et scripte a utiliser.
+          3- dans angular.json, dans styles , on ajoute le bootsrap.css qui est dans node_modules
+              "node_modules/bootstrap/scss/bootstrap.scss"
+
+              Et il faut le mettre aussi dans les style liee aux test, il se
+              touve tout en bas du fichier angular.json.
+
+              Et on fait de meme pour le script(Voir parti scrip dans angular.json)en ajoutant:
+
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+              
+              NB: quand vous modifier le fichier angular.json, il faut
+                  redemarer le serveur.-->
 </div>
 
 <router-outlet />
