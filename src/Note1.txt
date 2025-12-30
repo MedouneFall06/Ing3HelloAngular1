@@ -1,0 +1,115 @@
+1-pour la methode d'installation de bootstrap avec npm, dans angular.json,
+le script a choisir c'est celle qui est dans node_modules/bootstrap/dist/js/bootstrap.bundle.min.js
+
+2- Creations des modeles(classes):
+2-1- On cree le fichier models.ts dans src/app
+3- creations des composants: ng g c pages/classe-list
+
+j'ai modifier le selector de class-list en : ipsl-classes-list
+maintenant,  je vais appeler ce selecteur dans le app.component.html
+Sachant que le selecteur de app.component.ts est injecte dans main.ts
+une fois qu'une balise est de composant est ajouter dans une autre composant,
+il faudra l'importer dans imports de app.component.ts
+
+
+Dans un projet dev, on a deux parties: le bac et le front.
+
+Les deux equipes peuvent ben travailler en parallelle car on a deja definit le cahier de charge.
+
+Maintenant, au debut ou le backend n'est pas encore terminer,pour la partie front, il faut simuler ce que l'on doit avoir apres :
+1- Pour cela , on va cree un fichier app/data.ts qui va jouer le role de base de donnees
+
+Maintenant, pour pouvoir utiliser les models crees, il faut ajouter le mot cle
+export qui est un peu l'equivalent de public.
+
+exemple: Nous on avait cree le model comme suit:
+
+dans ce cas, le model ne peut etre utilise que dans le fichier data.ts
+interface Classe{
+  id?:string; //le point d'interrogation signifie que c'est pas obligatoire
+  code:string;
+  nom:string;
+  description?:string;
+
+}
+
+Maintenant, pour pouvoir l'utiliser dans d'autres fichiers, on ajoute export comme suit:
+
+export interface Classe{
+  id?:string; //le point d'interrogation signifie que c'est pas obligatoire
+  code:string;
+  nom:string;
+  description?:string;
+
+}
+
+Maintenant, dans data.ts, on une liste d'etudiants:
+
+const ETUDIANTS:Etudiant[]=[
+{id:1,nom:"FALL",prenom:"Medoune",age:20,poids:15,telephone:"77 XXX XX XX",classe:ing3info}
+]
+NB: Generalement, quand ona une relation comme notre cas entre etudiant et classe, alors, on met
+la relation en dernier(Voir l'enregistrement dans etudiants)
+
+Maintenant, creeons un autre composant pour pouvoir gerer la navigation entre
+composant.
+
+Lorsque tous nos pages ont le meme entete et le meme footer, alors, on peut ajouter dans
+app.component.html: les balises footer et header
+on met le  header  en haut , le footer en bas et le router outlet qui depends
+de la page ou on est, on le met au milieu.
+
+Si au niveau d'une autre page, on doit pas avoir l'entete, par exemple la page
+loggin, alors, on laisse seulement la balise <router-outlet/>.
+
+Si on oblige a toute les pages d'avoir le meme footer, ci  est generalement le cas:
+On ajoute la balise <footer><footer/> en bas de celui de router-outlet.
+Pour dir que toute les pages ont le meme footer, chacune customise son entete
+
+router-outlet est une variable qui  est egal au composant mis dans app.route  dont le path est mis a vide:
+
+ie:
+routes[
+{path:'' , component:"Component "}
+
+]
+
+======================== La responsivite dans bootrap==============================
+pour plus d'info, on va dans la documentation de bootstrap, dans Layout>container
+
+pour chaque type de containainer , on a 12 colonnes
+
+
+=============================== Les Conditions ===============================
+au par avant, on utiliser *ngif ou *ngfor : ils sont maintenant deprecie
+maintenant, on utilise @if ou @for(Voir html de classe detail)
+
+==============================
+
+la col-12 permet de dire que pour les ecrant petits, prend les 12 colonnes.
+
+la propriete: col-lg-6 permet de dire que pour les grand ecran, le detailLabel et le detailValue vont prendre le tout les 6 colonne
+
+============Navigation entre page=======
+
+on utilise le router link
+
+exemple : On veut acceder a la liste classe deuis classe, alors, on fait:
+
+-- Dans le html du composant classes, on met :
+          <div class="text-end">
+                <button class="btn btn-link" [routerLink]="['/classes']" >Voir liste classe</button>
+          </div>
+
+===============Composant natif de bootstrap permettant d'avoir un menue==========
+dans la doc de bootstrap, on va dans nav bar.
+
+on cree un composant menu
+tout composant reutilisable sur +sieurs pages, on peut le mettre dans fragment
+
+
+
+
+
+
+

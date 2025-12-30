@@ -15,7 +15,42 @@ Nb: il faut cree un fichier pour les variables: _ipslVariables.scss
 
     Maintenant, pour merger:
     1- on se place dans le main: git switch main
-    2- on merge: git merge config-bootstrap et git merge customisation-bootstrap 
-    
+    2- on merge: git merge config-bootstrap et git merge customisation-bootstrap
 
+    NB: l'interet des push est que lorqu'on fait des choses qui generent
+        des erreurs, on peut supprimer le projet et le recloner a partir du repot.
 */
+footer{
+  @extend .fixed-bottom;
+  @extend .bg-dark;
+  @extend .text-light;
+  @extend .text-center;
+  @extend .p-2;
+  @extend .small;
+}
+
+.detailTitre{
+  @extend .bg-primary;
+  @extend .text-light;
+  @extend .h2;
+  @extend .rounded-5
+}
+
+.abstracDetails{
+  font-size: 12px;
+}
+
+.detailLabel{
+  @extend .abstracDetails;
+  @extend .fw-bold;
+}
+.detailValue{
+  @extend .abstracDetails;
+}
+
+main{
+  margin-top: 40px;
+}
+header{
+  margin: 12px;
+}
