@@ -1,0 +1,66 @@
+<!--<div class="container-fluid border border-dark m-2 rounded-5 bg-primary">-->
+<!--&lt;!&ndash; Le container a 12 colonnes &ndash;&gt;-->
+<!--  <div class="row p-2">-->
+<!--&lt;!&ndash;A l'interieur du container, on met une ligne avec:-->
+<!--    1-Un containeur de couleur noir qui prend 6 colonnes-->
+<!--    2-Deux autres conteneurs qui partages les 6colones restants-->
+<!--     l'un de couleur rouge et l'autre avec un autre couleur&ndash;&gt;-->
+<!--    <div class="col-6 bg-dark text-light">un</div>-->
+<!--    <div class="col bg-danger text-light">deux</div>-->
+<!--    <div class="col bg-secondary text-light">trois</div>-->
+<!--  </div>-->
+<!--Maintenant, on va utiliser ca dans une use cas d'affichages des details d'une classe.-->
+<app-entete></app-entete>
+<main class="border border-primary p-2 m-2 rounded">
+  <div class="container-fluid ">
+    <div class="row p-2 m-2">
+      <div class="col-12 detailTitre bold">Détails etudiants</div>
+
+      <div class="col-12 col-lg-6">
+        <span class="detailLabel">Code:</span>
+        <span class="detailValue">{{classe.code}}</span>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <span class="detailLabel">ID:</span>
+        <span class="detailValue">{{classe.id}}</span>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <span class="detailLabel">Nom:</span>
+        <span class="detailValue">{{classe.nom}}</span>
+      </div>
+
+      <!--   1er methode      -->
+<!--      <div class="col-12">-->
+<!--        <span class="detailLabel">Responsable:</span>-->
+<!--        <span class="detailValue">{{classe.responsable?.prenom}}</span>-->
+<!--        &lt;!&ndash;Si le responsable existe, alors renvoi son nom :-->
+<!--               {{classe.responsable?.prenom}}-->
+<!--               c'est ce que fait le '?'-->
+
+<!--        &ndash;&gt;-->
+<!--      </div>-->
+
+      <!--   2eme methode   -->
+      @if (classe.responsable){
+        <div class="col-12 col-lg-6">
+          <span class="detailLabel">Responsable:</span>
+          <span class="detailValue">{{classe.responsable.prenom}}</span>
+        </div>
+      }
+
+      <div class="col-12 col-lg-6 bg-danger">
+        <span class="detailLabel">Description:</span>
+        <span class="detailValue">{{classe.description}}</span>
+      </div>
+
+    </div>
+    <div class="text-end">
+      <button class="btn btn-link" [routerLink]="['/classes']" >Voir liste classe</button>
+    </div>
+  </div>
+</main>
+
+
+

@@ -1,72 +1,90 @@
-<div class="bg-primary text-light h2 rounded-2 p-2 m-3">
-  Parametrages-school-Medoune FALL
-  <!-- Maintenant, si on va dans le navigateur, on pas les effet de bootstrap
-   C'est parcequ'on a pas encore configurer bootstrap 
-   On a deux facons de le configurer:
-   1- Methode des liens: On prends les lien dans la page de bootstrap sur le navigateur et 
-      on le cole dans le index principal, celui du projet, vu qu'il est accesible a tous les composants
-      les liens obtenue est: <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-      et <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>  
-      
-      NB: Le probleme en est que, en utilisant cette methode, on ne pourra pas customiser bootstrap
-      et n'est possible qu'avec internet a votre disposition.
+<!--<header>-->
 
-   2- Methodes des sources: On telecharge directement le css et js en cliquant sur les liens correspondants(Voir les balises link et script precedant)  
-      en faissant:
+<!--  <div class="bg-primary text-light h2 rounded-2 p-2 m-3">-->
+<!--    Parametrages-school-Medoune FALL-->
+<!--    &lt;!&ndash; Maintenant, si on va dans le navigateur, on pas les effet de bootstrap-->
+<!--     C'est parcequ'on a pas encore configurer bootstrap-->
+<!--     On a deux facons de le configurer:-->
+<!--     1- Methode des liens: On prends les lien dans la page de bootstrap sur le navigateur et-->
+<!--        on le cole dans le index principal, celui du projet, vu qu'il est accesible a tous les composants-->
+<!--        les liens obtenue est: <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
+<!--        et <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>-->
 
-   2-1 On cree dabord le repertoir public a la racine du projet
+<!--        NB: Le probleme en est que, en utilisant cette methode, on ne pourra pas customiser bootstrap-->
+<!--        et n'est possible qu'avec internet a votre disposition.-->
 
-   2-2-On telecharge le fichier bootstrap.min.css: curl https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css > pubic/bootstrap.min.css
+<!--     2- Methodes des sources: On telecharge directement le css et js en cliquant sur les liens correspondants(Voir les balises link et script precedant)-->
+<!--        en faissant:-->
 
-   2-3- Meme chose avec le js: curl https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js > public/bootstrap.bundle.min.css
+<!--     2-1 On cree dabord le repertoir public a la racine du projet-->
 
-   2-4- On cree les dossiers je et css on y met respectivement bootstrap.bundle.min.js et bootstrap.min.css
-   
-   2-4- Apres ces installation , on peut modifier les balises link(pour bootstrap.min.css) et script(pour bootstrap.bundle.min.css) comme suit:
-    
-         <link rel="stylesheet" href="public/bootstrap.min.css">
-         <script src="public/bootstrap.bundle.min.js"></script>
+<!--     2-2-On telecharge le fichier bootstrap.min.css: curl https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css > pubic/bootstrap.min.css-->
 
-         Et on voit que la customisation n'est pas encore utilisable meme si on utilises nos fichiers bootstrap.min.css
-         et bootstrap.undle.min.js
-         
-   NB: Si on a un library qu'on ne peut pas telecharger avec npm, alors on peut utiliser la deuxieme methode.
-   
-    3- La methode avec npm :
-       On supprime les dosssiers js et css dans public
-       On install bootstrap avec npm a partir de ce commande: 
-       npm i bootstrap@5.3.8 (Voir dans le site de bootstrap)
-       NB: Tous les librarie installer avec npm se trouve dans nodes_modules
-           On doit pas livrer le fichier node_modules car elle est trop lourd 
-           et elle peut etre recreer a partir du fichier packages.json
-            Raison pour laquelle, on doit l'ajouter dans .gitignore
-        
-       NB:If faut jamais modifier les modules bootstrap qui sont dans node_modules:
-          Si vous le faite, ca va marcher en local avec tes modifications
-          Mais si quelqu'un install ton app, il va perdre les modifs
-          parce bootstrap va se retelecharger et prends la version original. 
-          
-          Maintenant: 
-          1- supprimer les balise link et scrip dans index.html
-          2- Dire a angular.json les styles et scripte a utiliser.
-          3- dans angular.json, dans styles , on ajoute le bootsrap.css qui est dans node_modules
-              "node_modules/bootstrap/scss/bootstrap.scss"
+<!--     2-3- Meme chose avec le js: curl https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js > public/bootstrap.bundle.min.css-->
 
-              Et il faut le mettre aussi dans les style liee aux test, il se
-              touve tout en bas du fichier angular.json.
+<!--     2-4- On cree les dossiers je et css on y met respectivement bootstrap.bundle.min.js et bootstrap.min.css-->
 
-              Et on fait de meme pour le script(Voir parti scrip dans angular.json)en ajoutant:
+<!--     2-4- Apres ces installation , on peut modifier les balises link(pour bootstrap.min.css) et script(pour bootstrap.bundle.min.css) comme suit:-->
 
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
-              
-              NB: quand vous modifier le fichier angular.json, il faut
-                  redemarer le serveur.-->
+<!--           <link rel="stylesheet" href="public/bootstrap.min.css">-->
+<!--           <script src="public/bootstrap.bundle.min.js"></script>-->
 
-     <!--
-                   ====Customisation de bootstrap ===== 
-        1- supprimer dans angular.json: "node_modules/bootstrap/dist/css/bootstrap.min.css",           
-        1- On importe:  @import "../node_modules/bootstrap";  dans styles.scss          
-      -->
-</div>
+<!--           Et on voit que la customisation n'est pas encore utilisable meme si on utilises nos fichiers bootstrap.min.css-->
+<!--           et bootstrap.undle.min.js-->
+
+<!--     NB: Si on a un library qu'on ne peut pas telecharger avec npm, alors on peut utiliser la deuxieme methode.-->
+
+<!--      3- La methode avec npm :-->
+<!--         On supprime les dosssiers js et css dans public-->
+<!--         On install bootstrap avec npm a partir de ce commande:-->
+<!--         npm i bootstrap@5.3.8 (Voir dans le site de bootstrap)-->
+<!--         NB: Tous les librarie installer avec npm se trouve dans nodes_modules-->
+<!--             On doit pas livrer le fichier node_modules car elle est trop lourd-->
+<!--             et elle peut etre recreer a partir du fichier packages.json-->
+<!--              Raison pour laquelle, on doit l'ajouter dans .gitignore-->
+
+<!--         NB:If faut jamais modifier les modules bootstrap qui sont dans node_modules:-->
+<!--            Si vous le faite, ca va marcher en local avec tes modifications-->
+<!--            Mais si quelqu'un install ton app, il va perdre les modifs-->
+<!--            parce bootstrap va se retelecharger et prends la version original.-->
+
+<!--            Maintenant:-->
+<!--            1- supprimer les balise link et scrip dans index.html-->
+<!--            2- Dire a angular.json les styles et scripte a utiliser.-->
+<!--            3- dans angular.json, dans styles , on ajoute le bootsrap.css qui est dans node_modules-->
+<!--                "node_modules/bootstrap/scss/bootstrap.scss"-->
+
+<!--                Et il faut le mettre aussi dans les style liee aux test, il se-->
+<!--                touve tout en bas du fichier angular.json.-->
+
+<!--                Et on fait de meme pour le script(Voir parti scrip dans angular.json)en ajoutant:-->
+
+<!--                "node_modules/bootstrap/dist/js/bootstrap.bundle.js"-->
+
+<!--                NB: quand vous modifier le fichier angular.json, il faut-->
+<!--                    redemarer le serveur.&ndash;&gt;-->
+
+<!--    &lt;!&ndash;-->
+<!--                  ====Customisation de bootstrap =====-->
+<!--       1- supprimer dans angular.json: "node_modules/bootstrap/dist/css/bootstrap.min.css",-->
+<!--       1- On importe:  @import "../node_modules/bootstrap";  dans styles.scss-->
+<!--     &ndash;&gt;-->
+<!--  </div>-->
+
+<!--</header>-->
+<!--<div class="text-danger text-center">-->
+<!--  <ipsl-classes-list></ipsl-classes-list>-->
+<!--</div>-->
 
 <router-outlet />
+<!--si le footer depend d'une page specifique, on l'enleve ici et on le met dans la page correspondante-->
+<!--<footer class="fixed-bottom bg-dark text-light text-center p-2 small">-->
+<!--  coryrigth© Medoune FALL-->
+<!--</footer>-->
+<!--Maintenant, on peut aussi utiliser le fichier styl.scss pour la stylisation du bas de page
+pour cela, on met le footer sans style, ie on supprime le class
+puis on declare le style au niveau de styles.scss:
+-->
+<footer >
+  coryrigth© Medoune FALL
+</footer>
