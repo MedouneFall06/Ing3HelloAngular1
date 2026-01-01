@@ -1,0 +1,3 @@
+Maintenant, on a cree lle chemain : classes/:idClasse/etudiants
+
+Juste en en creant la route : {path:"classes/:idClasse/etudiants", component:"etudiants-classes"}
