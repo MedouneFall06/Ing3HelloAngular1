@@ -1,2 +1,49 @@
 <app-entete></app-entete>
-<p>etudiants classee work!</p>
+<main >
+  <div class="container-fluid">
+<!--    {{classe|json}
+Quand on a des relations entre entite, il faut eviter d'utiliser:
+- json,
+-les methodes toString ...
+ca permet d'avoir des boucles infinie surtout quand la relation est bidirectionnel
+
+}-->
+   <div class="row">
+     <div class="titrePage col-12 text-light">
+       <!-- Le d-block signifie que pour les ecrans de petite come de grande taille,
+            affiche le code({{classe?.code}})
+       -->
+       <span class="d-block d-lg-none">Liste des etudiants de {{classe?.code}}</span>
+      <!-- affiche(d-block ) mais n'affiche pas pour les ecran large(d-lg-none)-->
+       <span class="d-none d-lg-block">Liste des etudiants de {{classe?.nom}}</span>
+       <!-- affiche pas mais n'affiche  pour les ecran large(d-lg-block)-->
+       <!--
+       Ici, on affiche le code quand l'ecran est petit(Tablette,...) et on affiche le nom quand
+       l'ecran est extra large(Ordi, tele,...).
+       -->
+     </div>
+     <div class="col-12">
+       @if(etudiants.length==0){
+         <div class="text-light">Liste des etuiants vides</div>
+       }
+       @else(){
+         @for (e of  etudiants; track e.id; let index=$index; let even=$even; let isOdd=$odd; let isFirst=$first ){
+           <div class="border border-3 rounded-4">
+             <span class="detailLabel">Prenom:</span>
+             <span class="detailValue ">{{ e.prenom }}</span><br>
+
+             <span class="detailLabel">Nom:</span>
+             <span class="detailValue ">{{ e.nom }}</span><br>
+
+             <span class="detailLabel">Telephone:</span>
+             <span class="detailValue ">{{ e.telephone }}</span><br>
+           </div>
+
+
+         }
+
+       }
+     </div>
+   </div>
+  </div>
+</main>

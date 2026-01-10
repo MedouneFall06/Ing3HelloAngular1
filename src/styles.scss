@@ -29,7 +29,7 @@ footer{
   @extend .small;
 }
 
-.detailTitre{
+.titrePage{
   @extend .bg-primary;
   @extend .text-light;
   @extend .h2;
@@ -49,8 +49,9 @@ footer{
 }
 
 main{
-  margin-top: 40px;
+  @extend .mx-2;
+  margin-top: $headerHigth;
 }
 header{
-  margin: 12px;
+  margin: $headerHigth;
 }

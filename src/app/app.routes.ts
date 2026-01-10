@@ -9,7 +9,7 @@ import {EtudiantsClasseComponent} from "./pages/etudiants-classe/etudiants-class
 export const routes: Routes = [
   {path:"", component:ClassesDetailsComponent},
   {path:"classes", component:ClassesListComponent},
-  {path:"classes/:idClasses/etudiants", component:EtudiantsClasseComponent},
+  {path:"classes/:idClasse/etudiants", component:EtudiantsClasseComponent},
   {path:"classes/ajout", component:ClassesAddComponent},
   {path:"accueil",component:AccueilComponent},
   {path:"**", component:Error404Component}

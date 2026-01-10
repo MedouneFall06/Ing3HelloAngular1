@@ -1,3 +1,81 @@
 Maintenant, on a cree lle chemain : classes/:idClasse/etudiants
 
 Juste en en creant la route : {path:"classes/:idClasse/etudiants", component:"etudiants-classes"}
+Ainsi, si on prend n'importe quelle valeur pour idClasse, le chemin ou la route marche.
+Maintenant, on va essayer de reuperer la valeur de idClasse.
+
+Pour cela, on faire comme suit:
+1-On va declarer la variable idClasse dans  EtudiantsClasse de etudiants-classe.ts
+export class EtudiantsClasseComponent {
+  idClasse?:String;
+
+}
+2-Ensuite,nous allons utiliser la methode ngInit pour initialiser la variable idClasse
+2-1 Pour cela, on va implementer ngInit dans EtudiantsClasseComponent comme suit:
+
+export class EtudiantsClasseComponent implements OnInit{
+  idClasse?:String;
+  constructor(private router:Router,private activated:ActivatedRoute) {
+  }
+  ngOnInit() {
+    // Recuperaration de l'id
+    this.idClasse=this.activated.snapshot.params["idClasse"]
+
+  }
+
+}
+2-2 Apres avoir recuperer l'id, normalement, on doit faire appel a un service web pourqu'il nous
+    affiche les etudiants de la classe. Mais, comme on a pas enore de backend dispo, on
+    essai de tester seulement en affichant l'id fourni par le user.
+
+    export class EtudiantsClasseComponent implements OnInit{
+      classe?:Classe;
+      etudiants:Etudiant[]=[]; ici, on declare une varible tableau d'etudiant de la classe
+      constructor(private router:Router,private activated:ActivatedRoute) {
+      }
+      ngOnInit() {
+        // Recuperaration de l'id de la classe
+        const idClasse=this.activated.snapshot.params["idClasse"]
+        // Ici, une fois que l'id est recuperer, on devrait faire appel a un service web
+        //pour qu'il nous affiches les etudiants de la classe.
+        //mais comme  on a pas encore un backend dispo, On essai juste de tester avec les moyens a bord
+        // Apres avoir recuperer l'id de la classes:
+        //On recupere la classe et la liste des etudiants.
+        this.classe=ing3Info; ici, on initialise la classe avec celle creer dans data
+        this.etudiants=ETUDIANTS; on initialise le tableau etudiants avec celui creer dans data
+      }
+
+    }
+
+    Maintenant, avant de faire un traitement, il faut s'assurer que les infos
+    a savoir classe et etudiants ont etaient bien recuperer.
+    Pour cela, on utilise le output banding pour afficher par exemple le json de classe.
+
+    dans etudiants-classe.component.html, on met:
+
+   <main >
+     <div class="container-fluid bg-primary">
+   <!--    {{classe|json}
+   Quand on a des relations entre entite, il faut eviter d'utiliser:
+   - json,
+   -les methodes toString ...
+   ca permet d'avoir des boucles infinie surtout quand la relation est bidirectionnel
+
+   }-->
+      <div class="row">
+        <div class="titrePage col-12 text-light">
+          <!-- Le d-block signifie que pour les ecrans de petite come de grande taille,
+               affiche le code({{classe?.code}})
+          -->
+          <span class="d-block d-lg-none">Liste des etudiants de {{classe?.code}}</span>
+         <!-- affiche(d-block ) mais n'affiche pas pour les ecran large(d-lg-none)-->
+          <span class="d-none d-lg-block">Liste des etudiants de {{classe?.nom}}</span>
+          <!-- affiche pas mais n'affiche  pour les ecran large(d-lg-block)-->
+          <!--
+          Ici, o affiche le code quand l'ecran est petit(Tablette,...) et on affiche le nom quand
+          l'ecran est extra large(Ordi, tele,...).
+          -->
+        </div>
+      </div>
+     </div>
+   </main>
