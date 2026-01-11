@@ -8,14 +8,13 @@ Quand on a des relations entre entite, il faut eviter d'utiliser:
 ca permet d'avoir des boucles infinie surtout quand la relation est bidirectionnel
 
 }-->
-   <div class="row">
-     <div class="titrePage col-12 text-light">
+   <div class="row titrePage fw-bold">
        <!-- Le d-block signifie que pour les ecrans de petite come de grande taille,
             affiche le code({{classe?.code}})
        -->
-       <span class="d-block d-lg-none">Liste des etudiants de {{classe?.code}}</span>
+       <span class="d-block d-lg-none ">Liste des etudiants de {{classe?.code}}</span>
       <!-- affiche(d-block ) mais n'affiche pas pour les ecran large(d-lg-none)-->
-       <span class="d-none d-lg-block">Liste des etudiants de {{classe?.nom}}</span>
+       <span class="d-none d-lg-block ">Liste des etudiants de {{classe?.nom}}</span>
        <!-- affiche pas mais n'affiche  pour les ecran large(d-lg-block)-->
        <!--
        Ici, on affiche le code quand l'ecran est petit(Tablette,...) et on affiche le nom quand
@@ -24,19 +23,45 @@ ca permet d'avoir des boucles infinie surtout quand la relation est bidirectionn
      </div>
      <div class="col-12">
        @if(etudiants.length==0){
-         <div class="text-light">Liste des etuiants vides</div>
+         <div class="text-danger">Liste des etuiants vides</div>
        }
        @else(){
          @for (e of  etudiants; track e.id; let index=$index; let even=$even; let isOdd=$odd; let isFirst=$first ){
-           <div class="border border-3 rounded-4">
-             <span class="detailLabel">Prenom:</span>
-             <span class="detailValue ">{{ e.prenom }}</span><br>
+           <div class="border-bottom  rounded my-2 p-2 row">
+             <div class="col-12 col-lg-6">
+               <!--pour les petit ecran, on affiche:-->
+               <span class="detailLabel">Prenom:</span>
+               <span class="detailValue ">{{ e.prenom }}</span><br>
+             </div>
+             <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+             <div class="col-12 col-lg-6 d-none d-lg-block border-start ">
+               <span class="detailLabel ">Addresse:</span>
+               <span class="detailValue ">{{ e.addresse }}</span><br>
+             </div>
 
-             <span class="detailLabel">Nom:</span>
-             <span class="detailValue ">{{ e.nom }}</span><br>
+             <!--pour les petit ecran, on affiche:-->
+             <div class="col-12 col-lg-6">
+               <span class="detailLabel">Nom:</span>
+               <span class="detailValue ">{{ e.nom }}</span><br>
+             </div>
 
-             <span class="detailLabel">Telephone:</span>
-             <span class="detailValue ">{{ e.telephone }}</span><br>
+             <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+             <div class="col-12 col-lg-6 d-none d-lg-block border-start ">
+               <span class="detailLabel ">Age:</span>
+               <span class="detailValue ">{{ e.age }}</span><br>
+             </div>
+             <!--pour les petit ecran, on affiche:-->
+             <div class="col-12 col-lg-6">
+               <span class="detailLabel">Telephone:</span>
+               <span class="detailValue ">{{ e.telephone }}</span><br>
+             </div>
+
+             <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+             <div class="col-12 col-lg-6 d-none d-lg-block border-start">
+               <span class="detailLabel ">Poids:</span>
+               <span class="detailValue ">{{ e.poids }}</span><br>
+             </div>
+
            </div>
 
 
@@ -45,5 +70,4 @@ ca permet d'avoir des boucles infinie surtout quand la relation est bidirectionn
        }
      </div>
    </div>
-  </div>
 </main>

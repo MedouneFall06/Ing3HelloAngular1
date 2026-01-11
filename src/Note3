@@ -1,0 +1,10 @@
+Pour l'affichage des etudiants, il faut au debut, travailler avec seulement peut d'etudiants dans data.ts
+
+apres avoir une bonne affichage, on pourra etendre.
+
+Difference entre : @if et d-none:
+
+@if:  si la condition n'est pas verifier, le html n'existe pas dans le navigateur
+
+d-none: Meme quand  la condition n'est pas verifier, le html existe mais on demande au navigateur de le masquer.
+
