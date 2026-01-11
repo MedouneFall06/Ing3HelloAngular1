@@ -1,0 +1,45 @@
+<div class="border-bottom  rounded my-2 p-2 row">
+  <div class="col-12 col-lg-6">
+    <!--pour les petit ecran, on affiche:-->
+    <span class="detailLabel">Prenom:</span>
+    <span class="detailValue ">{{ etudiant?.prenom }}</span><br>
+  </div>
+  @if (showDetails){
+    <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+    <div class="col-12 col-lg-6 border-start ">
+      <span class="detailLabel ">Addresse:</span>
+      <span class="detailValue ">{{ etudiant?.addresse }}</span><br>
+    </div>
+
+  }
+
+
+  <!--pour les petit ecran, on affiche:-->
+  <div class="col-12 col-lg-6">
+    <span class="detailLabel">Nom:</span>
+    <span class="detailValue ">{{ etudiant?.nom }}</span><br>
+  </div>
+
+  @if (showDetails){
+    <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+    <div class="col-12 col-lg-6   border-start ">
+      <span class="detailLabel ">Age:</span>
+      <span class="detailValue ">{{ etudiant?.age }}</span><br>
+    </div>
+  }
+
+  <!--pour les petit ecran, on affiche:-->
+  <div class="col-12 col-lg-6">
+    <span class="detailLabel">Telephone:</span>
+    <span class="detailValue ">{{ etudiant?.telephone }}</span><br>
+  </div>
+
+  @if (showDetails){
+    <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+    <div class="col-12 col-lg-6  border-start">
+      <span class="detailLabel ">Poids:</span>
+      <span class="detailValue ">{{ etudiant?.poids }}</span><br>
+    </div>
+
+  }
+</div>

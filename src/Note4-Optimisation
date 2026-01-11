@@ -1,0 +1,166 @@
+pPour optimiser l'affichage des eudiants:
+
+1- On reee un composant specifique ca : etudiant-item
+
+2- dans le typscript de ce composant(etudiant-item):
+
+2-1- on declare l'etudiant : etudiant:Etudiant
+
+2-2 Puis on lui dit que ca doit etre donner en parametre,
+    c'est a l'element qui veut utiliser ce composant(etudiant-item)
+    d'injecter l'etudiant a afficher.
+    pour cela, on met:
+
+      @Input()
+
+
+    export class EtudiantsItemsComponent {
+      @Input()
+      etudiant?:Etudiant;
+
+    }
+
+3- En fin, on coupe la maniere,le code html du composant classes etudiant
+   avec la boucle for :
+
+   <div class="border-bottom  rounded my-2 p-2 row">
+     <div class="col-12 col-lg-6">
+       <!--pour les petit ecran, on affiche:-->
+       <span class="detailLabel">Prenom:</span>
+       <span class="detailValue ">{{ e.prenom }}</span><br>
+     </div>
+     <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+     <div class="col-12 col-lg-6 d-none d-lg-block border-start ">
+       <span class="detailLabel ">Addresse:</span>
+       <span class="detailValue ">{{ e.addresse }}</span><br>
+     </div>
+
+     <!--pour les petit ecran, on affiche:-->
+     <div class="col-12 col-lg-6">
+       <span class="detailLabel">Nom:</span>
+       <span class="detailValue ">{{ e.nom }}</span><br>
+     </div>
+
+     <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+     <div class="col-12 col-lg-6 d-none d-lg-block border-start ">
+       <span class="detailLabel ">Age:</span>
+       <span class="detailValue ">{{ etudiant?.age }}</span><br>
+     </div>
+     <!--pour les petit ecran, on affiche:-->
+     <div class="col-12 col-lg-6">
+       <span class="detailLabel">Telephone:</span>
+       <span class="detailValue ">{{ e.telephone }}</span><br>
+     </div>
+
+     <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+     <div class="col-12 col-lg-6 d-none d-lg-block border-start">
+       <span class="detailLabel ">Poids:</span>
+       <span class="detailValue ">{{ e.poids }}</span><br>
+     </div>
+
+   </div>
+
+
+
+   Puis on le colle dans le html du nouveau composant en remplacant la
+   variable e par la variable declarer dans le composant (etudiant?):
+
+
+
+   <div class="border-bottom  rounded my-2 p-2 row">
+     <div class="col-12 col-lg-6">
+       <!--pour les petit ecran, on affiche:-->
+       <span class="detailLabel">Prenom:</span>
+       <span class="detailValue ">{{ etudiant?.prenom }}</span><br>
+     </div>
+     <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+     <div class="col-12 col-lg-6 d-none d-lg-block border-start ">
+       <span class="detailLabel ">Addresse:</span>
+       <span class="detailValue ">{{ etudiant?.addresse }}</span><br>
+     </div>
+
+     <!--pour les petit ecran, on affiche:-->
+     <div class="col-12 col-lg-6">
+       <span class="detailLabel">Nom:</span>
+       <span class="detailValue ">{{ etudiant?.nom }}</span><br>
+     </div>
+
+     <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+     <div class="col-12 col-lg-6 d-none d-lg-block border-start ">
+       <span class="detailLabel ">Age:</span>
+       <span class="detailValue ">{{ etudiant?.age }}</span><br>
+     </div>
+     <!--pour les petit ecran, on affiche:-->
+     <div class="col-12 col-lg-6">
+       <span class="detailLabel">Telephone:</span>
+       <span class="detailValue ">{{ etudiant?.telephone }}</span><br>
+     </div>
+
+     <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+     <div class="col-12 col-lg-6 d-none d-lg-block border-start">
+       <span class="detailLabel ">Poids:</span>
+       <span class="detailValue ">{{ etudiant?.poids }}</span><br>
+     </div>
+
+   </div>
+
+
+   Maintenant, au lieu d'utiliser le d-none, on va cree une variable qui
+   permet d'afficher ou masquer les details et on va dir que c'est composant
+   de choisir:
+
+   On ajoute:
+   @Input()
+   showDetails=false;
+
+   ca donne ceci:
+
+   export class EtudiantsItemsComponent {
+     @Input()
+     etudiant?:Etudiant;
+
+     @Input()
+     showDetails=false
+
+   }
+
+
+4- Affichage:
+
+4-1: On met le selecteur(Le selecteur est modifiable) du nouveau composant dans
+     le composant qui en a  besoin, ici, le composant classe etudiant puis
+     comme applique le property banding comme suit:
+
+      @for (e of  etudiants; track e.id; let index=$index; let even=$even; let isOdd=$odd; let isFirst=$first ){
+                <etudiants-items [etudiant]="e" [showDetails]="false" ]></etudiants-items>
+
+              }
+
+4-2: Remplacer le d-none par le showDetail
+
+- Tout les div avec la propriete d-none doivent et a l'interrieur de la condition :
+
+   @if(showDetail){
+
+   }
+
+- On supprime le d-none et d-block
+
+exemple:
+
+ @if (showDetails){
+    <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
+    <div class="col-12 col-lg-6 d-lg-block border-start ">
+      <span class="detailLabel ">Addresse:</span>
+      <span class="detailValue ">{{ etudiant?.addresse }}</span><br>
+    </div>
+
+  }
+
+
+
+
+
+
+
+

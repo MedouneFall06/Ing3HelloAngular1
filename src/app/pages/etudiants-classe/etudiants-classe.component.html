@@ -27,43 +27,7 @@ ca permet d'avoir des boucles infinie surtout quand la relation est bidirectionn
        }
        @else(){
          @for (e of  etudiants; track e.id; let index=$index; let even=$even; let isOdd=$odd; let isFirst=$first ){
-           <div class="border-bottom  rounded my-2 p-2 row">
-             <div class="col-12 col-lg-6">
-               <!--pour les petit ecran, on affiche:-->
-               <span class="detailLabel">Prenom:</span>
-               <span class="detailValue ">{{ e.prenom }}</span><br>
-             </div>
-             <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
-             <div class="col-12 col-lg-6 d-none d-lg-block border-start ">
-               <span class="detailLabel ">Addresse:</span>
-               <span class="detailValue ">{{ e.addresse }}</span><br>
-             </div>
-
-             <!--pour les petit ecran, on affiche:-->
-             <div class="col-12 col-lg-6">
-               <span class="detailLabel">Nom:</span>
-               <span class="detailValue ">{{ e.nom }}</span><br>
-             </div>
-
-             <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
-             <div class="col-12 col-lg-6 d-none d-lg-block border-start ">
-               <span class="detailLabel ">Age:</span>
-               <span class="detailValue ">{{ e.age }}</span><br>
-             </div>
-             <!--pour les petit ecran, on affiche:-->
-             <div class="col-12 col-lg-6">
-               <span class="detailLabel">Telephone:</span>
-               <span class="detailValue ">{{ e.telephone }}</span><br>
-             </div>
-
-             <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->
-             <div class="col-12 col-lg-6 d-none d-lg-block border-start">
-               <span class="detailLabel ">Poids:</span>
-               <span class="detailValue ">{{ e.poids }}</span><br>
-             </div>
-
-           </div>
-
+           <etudiants-items [etudiant]="e" [showDetails]="true"></etudiants-items>
 
          }
 
