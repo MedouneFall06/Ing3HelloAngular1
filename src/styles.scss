@@ -30,10 +30,13 @@ footer{
 }
 
 .titrePage{
-  @extend .bg-primary;
-  @extend .text-light;
-  @extend .h2;
-  @extend .rounded-5
+  //@extend .bg-primary;
+  @extend .text-primary;
+  @extend .border-bottom;
+  @extend .border-primary;
+  @extend .p-2;
+  //@extend .h2;
+  @extend .rounded;
 }
 
 .abstracDetails{
@@ -49,9 +52,6 @@ footer{
 }
 
 main{
-  @extend .mx-2;
-  margin-top: $headerHigth;
-}
-header{
-  margin: $headerHigth;
+  margin-top: $headerHigth + 20px;
+  padding-bottom: 60px; // Espace pour le footer
 }

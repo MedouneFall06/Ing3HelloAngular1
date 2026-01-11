@@ -3,7 +3,7 @@ import {EnteteComponent} from "../../fragments/entete/entete.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Classe, Etudiant} from "../../models";
 import {ETUDIANTS, ing3info} from "../../data";
-import {JsonPipe} from "@angular/common";
+
 
 @Component({
   selector: 'app-etudiants-classe',
