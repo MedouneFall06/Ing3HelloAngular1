@@ -3,6 +3,7 @@ import {EnteteComponent} from "../../fragments/entete/entete.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Classe, Etudiant} from "../../models";
 import {ETUDIANTS, ing3info} from "../../data";
+import {EtudiantsItemsComponent} from "../../fragments/etudiants-items/etudiants-items.component";
 
 
 @Component({
@@ -10,6 +11,7 @@ import {ETUDIANTS, ing3info} from "../../data";
   standalone: true,
   imports: [
     EnteteComponent,
+    EtudiantsItemsComponent,
   ],
   templateUrl: './etudiants-classe.component.html',
   styleUrl: './etudiants-classe.component.scss'
