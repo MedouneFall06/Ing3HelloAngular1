@@ -15,4 +15,10 @@ export class EtudiantsItemsComponent {
   @Input()
   showDetails=true
 
+  @Input()
+  labelColor="blue";
+
+  @Input()
+  valueColor="gray";
+
 }
