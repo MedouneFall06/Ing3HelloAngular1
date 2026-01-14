@@ -1,8 +1,8 @@
 <div class="border-bottom  rounded my-2 p-2 row">
   <div class="col-12 col-lg-6">
     <!--pour les petit ecran, on affiche:-->
-    <span class="detailLabel">Prenom:</span>
-    <span class="detailValue ">{{ etudiant?.prenom }}</span><br>
+    <span class="detailLabel" [style.color]="labelColor" >Prenom:</span>
+    <span class="detailValue" [style.color]="valueColor">{{ etudiant?.prenom }}</span><br>
   </div>
   @if (showDetails){
     <!-- Ceci n'est pas fait pour les telephones: c'est pour les grand ecran, on affiche:-->

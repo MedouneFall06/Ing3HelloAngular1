@@ -1,0 +1,18 @@
+Ici, pour se faire, on cree les variables labelColeur et valueColor:
+
+1- Dans le typescript de etudiant-items, on cree les variables comme suit:
+
+  export class EtudiantsItemsComponent {
+    @Input()
+    etudiant?:Etudiant;
+
+    @Input()
+    showDetails=true
+
+    labelColor="green";
+    valueColor="gray"
+
+  }
+
+2-On applique le style dans le html en utilisant le output banding [propriete]="value"
+
