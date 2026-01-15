@@ -16,9 +16,24 @@ export class EtudiantsItemsComponent {
   showDetails=true
 
   @Input()
-  labelColor="blue";
+  labelStyle={
+    color:'#11a711',
+    fontWeight:600,
+    fontSize:16,
+    textDecoration:'underline'
+  };
 
   @Input()
-  valueColor="gray";
+  valueStyle={
+    color:'#626161',
+    fontWeight: 600,
+    fontSize:16,
+  };
 
+  estMajeur(){
+    if(this.etudiant && this.etudiant.age !== undefined){
+      return this.etudiant.age >= 18;
+    }
+    return false;
+  }
 }
