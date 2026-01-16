@@ -5,11 +5,14 @@ import {ClassesListComponent} from "./pages/classes-list/classes-list.component"
 import {Error404Component} from "./pages/error404/error404.component";
 import {ClassesDetailsComponent} from "./pages/classes-details/classes-details.component";
 import {EtudiantsClasseComponent} from "./pages/etudiants-classe/etudiants-classe.component";
+import {EtudiantAjoutComponent} from "./pages/etudiant-ajout/etudiant-ajout.component";
 
 export const routes: Routes = [
   {path:"", component:ClassesDetailsComponent},
   {path:"classes", component:ClassesListComponent},
   {path:"classes/:idClasse/etudiants", component:EtudiantsClasseComponent},
+  {path:"classes/:idClasse/new-etudiant", component:EtudiantAjoutComponent},
+  {path:"new-etudiant", component:EtudiantAjoutComponent},
   {path:"classes/ajout", component:ClassesAddComponent},
   {path:"accueil",component:AccueilComponent},
   {path:"**", component:Error404Component}

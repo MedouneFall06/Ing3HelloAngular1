@@ -1,5 +1,5 @@
 export interface Classe{
-  id?:string; //le point d'interrogation signifie que c'est pas obligatoire
+  id?:number; //le point d'interrogation signifie que c'est pas obligatoire
   code:string;
   nom:string;
   description?:string;
