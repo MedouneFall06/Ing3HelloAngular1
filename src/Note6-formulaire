@@ -1,0 +1,57 @@
+
+Pour le controle des champs d;un formulaire, on a:
+
+- Les formControl et
+- Les formGroup(Quand il y'ades sous control dans le formControl)
+Maintenant, il faut preciser aux html (Formulaire) qu'il ya un certains regles
+de type formControl qui le surveille dans le typscript.
+
+- Declarons le formcontrol:
+etudiantForm=new FormGroup({
+    prenom:new FormControl('Medoune', Validators.required),
+    // Et s'il y'a +sieurs contraintes, on met en crochets les Validators.
+    nom:new FormControl('FALL', [Validators.required,Validators.maxLength(8)]),
+    tel:new FormControl('78XXXXXXX', [Validators.required,Validators.maxLength(13)]),
+    inscrit:new FormControl('true', [Validators.required]),
+    classeId:new FormControl('true', [Validators.required])
+  })
+
+
+- puis on precise le formulaire, le formControle a respecter ou a suivre.
+  en uutilisant le property banding:
+
+  ---->  [formGroup]="etudiantForm"
+
+
+- pour les bouton, ona cree la methode suivante pour tester:
+
+  save(){
+  console.log("student saving")
+  }
+
+-->Maintenant, si on veut que quand on clique sur n'impore quelle bouton, que la
+  methode save soit executer(pas recommender), dans ce cas, on doit utliser
+  le property banding comme suit:
+      [ngSubmit]="save()"
+
+  pourquoi ngSubmit? parce que par defaut, les button dans un formlaire, sont
+  des button submit.
+
+-->Maintenant, si l'on veut que la methode soit appeller pour un boutton speci-
+   fique quand on clique sur le bouton (Html):
+
+   ici, on a le react to user event: html ---> typscript
+
+   alors, on met en dans le boutton specifique, l'attribut et la valeur suivante:
+
+   (click)="save()"
+
+- Et pour faire le lien entre le formulaire et le formGroup:
+
+On va ajouter: formControlName='NomFomControl' dans chaque input correspondant.
+ Maintenant, on va recuperer les valeur ecrits par le user dans le formulaire
+ quand il clique sur le boutton enregistrer.
+
+
+
+

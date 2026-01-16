@@ -1,41 +1,43 @@
 <app-entete></app-entete>
 <main class="d-flex justify-content-center">
 
-  <form class="border p-2 rounded-2">
+  <form class="border p-2 rounded-2" [formGroup]="etudiantForm" >
     <div class="titrePage border-bottom-0">Ajout nouvel étudiant</div>
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="prenomInput" placeholder="Médoune">
+      <input formControlName="prenom" type="text" class="form-control" id="prenomInput" placeholder="Médoune">
       <label for="prenomInput">Prénom</label>
     </div>
 
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="nomInput" placeholder="FALL">
+      <input formControlName="nom" type="text" class="form-control" id="nomInput" placeholder="FALL">
       <label for="nomInput">Nom</label>
     </div>
 
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="telephoneInput" placeholder="77XXXXXXX">
+      <input formControlName="tel" type="text" class="form-control" id="telephoneInput" placeholder="77XXXXXXX">
       <label for="telephoneInput">Téléphone</label>
     </div>
 
     <div class="form-check form-switch mb-3">
-      <input class="form-check-input" type="checkbox" role="switch" id="inscritCheck">
+      <input formControlName="inscrit" class="form-check-input" type="checkbox" role="switch" id="inscritCheck">
       <label class="form-check-label" for="inscritCheck">Etudiant inscrit?</label>
     </div>
 
     <div class="form-floating mb-3">
-      <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-        <option selected>Choisir la classe</option>
-        <option value="1">Ing1</option>
-        <option value="2">Ing2</option>
-        <option value="3">Ing3</option>
+      <select formControlName="classeId" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+        <option value="" >Choisir la classe</option>
+        @for (cls of classes; track cls.id){
+        <!--Le track est utilise lorsque l'id est unique          -->
+          <option [value]="cls.id">{{cls.code}}: {{cls.nom}}</option>
+        }
+
       </select>
       <label for="floatingSelect">Classe</label>
     </div>
 
     <div class="text-end">
       <button class="btn btn-danger rounded-2 me-2">Annuler</button>
-      <button class="btn btn-primary rounded-2">Enregistrer</button>
+      <button class="btn btn-primary rounded-2 " (click)="etudiantSave()">Enregistrer</button>
     </div>
 
 

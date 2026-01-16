@@ -2,7 +2,26 @@ import {Classe, Etudiant} from "./models";
 
 // Ici on peut seulement donner la valeur des attributs obligatoire
 
-export const ing3info:Classe={id:'1',code:'Ing3',nom:"3em cycle ingenieur"}
+export const ing3info:Classe={
+  id:3,
+  code:'Ing3',
+  nom:"3èm cycle ingenieur"}
+
+export const ing2info:Classe={
+  id:2,
+  code:'Ing2',
+  nom:"2èm cycle ingenieur"
+}
+
+export const ing1info:Classe={
+  id:1,
+  code:'Ing1',
+  nom:"1er cycle ingenieur"
+}
+export const CLASSE_LIST:Classe[]=[ing1info,ing2info, ing3info]
+
+
+
 const resp:Etudiant={id:1,nom:"FALL",prenom:"Medoune",age:20,poids:15,telephone:"77 XXX XX XX",classe:ing3info}
 
 //On ajoute le responsable dans la classe.
