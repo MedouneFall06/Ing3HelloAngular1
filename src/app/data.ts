@@ -31,8 +31,8 @@ ing3info.responsable=resp
   export const ETUDIANTS:Etudiant[]=[
     resp,
     {id:2,nom:"Aidara",prenom:"Abass",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
-    {id:2,nom:"KA",prenom:"Samba",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
-    {id:2,nom:"DIATTA",prenom:"Younouss",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
+    {id:2,nom:"KA",prenom:"Samba",age:17,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
+    {id:2,nom:"DIATTA",prenom:"Younouss",age:18,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
     {id:2,nom:"SYLLA",prenom:"Makhoudia",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
     {id:2,nom:"DIALLO",prenom:"Youssoupha",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info}
 ]

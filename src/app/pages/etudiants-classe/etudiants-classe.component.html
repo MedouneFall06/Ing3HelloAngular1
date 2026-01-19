@@ -27,7 +27,7 @@ ca permet d'avoir des boucles infinie surtout quand la relation est bidirectionn
        }
        @else(){
          @for (e of  etudiants; track e.id; let index=$index; let even=$even; let isOdd=$odd; let isFirst=$first ){
-           <etudiants-items [etudiant]="e" [showDetails]="true" [labelColor]="'indigo'" [valueColor]="'orange'" ></etudiants-items>
+           <etudiants-items [etudiant]="e" [showDetails]="true"  ></etudiants-items>
 
          }
 
