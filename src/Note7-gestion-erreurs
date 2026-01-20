@@ -1,0 +1,82 @@
+ Ici, nous avons les differents proprietes qui existe pour la gestions des erreurs
+ <!-- Proprietes pour la gestion des erreurs  -->
+<!--  form valid:{{etudiantForm.valid}}<br/>-->
+<!--  form invalid:{{etudiantForm.invalid}}<br/>-->
+<!--  form pristine:{{etudiantForm.pristine}}<br/>// estModifier-->
+<!--  form dirty:{{etudiantForm.dirty}}<br/>//!estModifier-->
+<!--  form touched:{{etudiantForm.touched}}<br/>-->
+<!--  form untouched:{{etudiantForm.untouched}}<br/>-->
+
+1- Maintenant, la 1 ere chose a faire est :
+
+--> Desactiver le boutton d'enregistrer du formulaire quand c'est invalide:
+
+pour cela , on ajoute: [disabled]="etudiantform.invalid"
+
+pour le nom : [class.is-invalid]="etudiantform.control['nom'].invalid" comme suit:
+
+ <input
+        formControlName="prenom"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="etudiantForm.controls['prenom'].invalid"
+        id="prenomInput"
+        placeholder="Médoune"
+      >
+
+      Maintenant, on peut ajouter un autre regle : le champs a le contourr rouge lorsqu'on touche au champ et qui'il est invalid
+
+      on ajoute donc: etudiantForm.controls['nom'].touched
+
+      et ca devient:
+
+       [class.is-invalid]="etudiantForm.controls['nom'].touched && etudiantForm.controls['nom'].invalid"
+
+       Maintenant c a vous de voir quoi mettre.
+       est-ce c'est quand touche le champs sans rien faire?
+       est-ce c'est quand touche le champs en remplissant de maniere a ne pas respecter les contraintes...?
+
+       Le prof choisi, des qu'on touche, qu'il y'a erreur, on le signal: touch et invalid.
+
+       Maintenant, on peut specifier les erreurs courant qu'on peut obtenir:
+
+       1- Le champs et requis
+       2- La longueur de la valeur du champ doit etre comprise entre 2 et 10 lettre par exemple
+
+       pour ce cela , modifie la logique :
+
+       @if(etudiantForm.controls['nom'].touched && etudiantForm.controls['nom'].invalid){
+               <div class="small text-danger ms-2 fst-italic">erreur sur le nom</div>
+       }
+
+          ====== en : =====
+
+
+
+       @if(etudiantForm.controls['prenom'].touched && etudiantForm.controls['prenom'].errors){
+         @if(etudiantForm.get('prenom')?.errors?.['required']){
+           <div class="small text-danger ms-2 fst-italic">champ requis</div>
+         }
+         @if(etudiantForm.get('prenom')?.errors?.['minlength']){
+           <div class="small text-danger ms-2 fst-italic">le prénom doit contenir au moins 2 caractères</div>
+         }
+         @if(etudiantForm.get('prenom')?.errors?.['maxlength']){
+           <div class="small text-danger ms-2 fst-italic">le prénom doit contenir au max 10 caractères</div>
+         }
+
+       }
+
+
+
+
+
+
+
+ On fait de meme pour le nom:
+         [class.is-invalid]="etudiantForm.controls['nom'].invalid"
+
+
+
+commit -m 'mettre l'etudiant ajouter dans la liste des etudiants'
+
+
