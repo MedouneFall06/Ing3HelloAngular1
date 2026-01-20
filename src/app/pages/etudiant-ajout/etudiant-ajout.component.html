@@ -3,14 +3,51 @@
 
   <form class="border p-2 rounded-2" [formGroup]="etudiantForm" >
     <div class="titrePage border-bottom-0">Ajout nouvel étudiant</div>
-    <div class="form-floating mb-3">
-      <input formControlName="prenom" type="text" class="form-control" id="prenomInput" placeholder="Médoune">
-      <label for="prenomInput">Prénom</label>
+    <div class="mb-3">
+
+      <div class="form-floating ">
+        <input
+          formControlName="prenom"
+          type="text"
+          class="form-control"
+          [class.is-invalid]="etudiantForm.controls['prenom'].touched && etudiantForm.controls['prenom'].invalid"
+          id="prenomInput"
+        >
+        <label for="prenomInput">Prenom</label>
+      </div>
+
+      @if(etudiantForm.controls['prenom'].touched && etudiantForm.controls['prenom'].errors){
+        @if(etudiantForm.get('prenom')?.errors?.['required']){
+          <div class="small text-danger ms-2 fst-italic">champ requis</div>
+        }
+        @if(etudiantForm.get('prenom')?.errors?.['minlength']){
+          <div class="small text-danger ms-2 fst-italic">le prénom doit contenir au moins 2 caractères</div>
+        }
+        @if(etudiantForm.get('prenom')?.errors?.['maxlength']){
+          <div class="small text-danger ms-2 fst-italic">le prénom doit contenir au max 10 caractères</div>
+        }
+
+      }
+
     </div>
 
-    <div class="form-floating mb-3">
-      <input formControlName="nom" type="text" class="form-control" id="nomInput" placeholder="FALL">
-      <label for="nomInput">Nom</label>
+
+    <div class="mb-3">
+
+      <div class="form-floating ">
+        <input
+          formControlName="nom"
+          type="text"
+          class="form-control"
+          [class.is-invalid]="etudiantForm.controls['nom'].touched && etudiantForm.controls['nom'].invalid"
+          id="nomInput"
+        >
+        <label for="nomInput">Nom</label>
+      </div>
+      @if(etudiantForm.controls['nom'].touched && etudiantForm.controls['nom'].invalid){
+        <div class="small text-danger ms-2 fst-italic">erreur sur le nom</div>
+      }
+
     </div>
 
     <div class="form-floating mb-3">
@@ -37,9 +74,17 @@
 
     <div class="text-end">
       <button class="btn btn-danger rounded-2 me-2">Annuler</button>
-      <button class="btn btn-primary rounded-2 " (click)="etudiantSave()">Enregistrer</button>
+      <button class="btn btn-primary rounded-2 " [disabled]="etudiantForm.invalid"  (click)="etudiantSave()">Enregistrer</button>
     </div>
 
 
   </form>
 </main>
+
+<!-- Proprietes pour la gestion des erreurs  -->
+<!--form valid:{{etudiantForm.valid}}<br/>-->
+<!--form invalid:{{etudiantForm.invalid}}<br/>-->
+<!--form pristine:{{etudiantForm.pristine}}<br/>// estModifier-->
+<!--form dirty:{{etudiantForm.dirty}}<br/>//!estModifier-->
+<!--form touched:{{etudiantForm.touched}}<br/>-->
+<!--form untouched:{{etudiantForm.untouched}}<br/>-->

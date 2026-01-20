@@ -20,9 +20,7 @@ export const ing1info:Classe={
 }
 export const CLASSE_LIST:Classe[]=[ing1info,ing2info, ing3info]
 
-
-
-const resp:Etudiant={id:1,nom:"FALL",prenom:"Medoune",age:20,poids:15,telephone:"77 XXX XX XX",classe:ing3info}
+const resp:Etudiant={id:1,nom:"FALL",prenom:"Medoune",age:20,poids:15,tel:"77 XXX XX XX",classe:ing3info}
 
 //On ajoute le responsable dans la classe.
 ing3info.responsable=resp
@@ -30,11 +28,11 @@ ing3info.responsable=resp
 
   export const ETUDIANTS:Etudiant[]=[
     resp,
-    {id:2,nom:"Aidara",prenom:"Abass",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
-    {id:2,nom:"KA",prenom:"Samba",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
-    {id:2,nom:"DIATTA",prenom:"Younouss",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
-    {id:2,nom:"SYLLA",prenom:"Makhoudia",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info},
-    {id:2,nom:"DIALLO",prenom:"Youssoupha",age:20,poids:16,telephone:"78 XXX XX XX",classe:ing3info}
+    {id:2,nom:"Aidara",prenom:"Abass",age:20,poids:16,tel:"78 XXX XX XX",classe:ing3info},
+    {id:2,nom:"KA",prenom:"Samba",age:20,poids:16,tel:"78 XXX XX XX",classe:ing3info},
+    {id:2,nom:"DIATTA",prenom:"Younouss",age:20,poids:16,tel:"78 XXX XX XX",classe:ing3info},
+    {id:2,nom:"SYLLA",prenom:"Makhoudia",age:20,poids:16,tel:"78 XXX XX XX",classe:ing3info},
+    {id:2,nom:"DIALLO",prenom:"Youssoupha",age:20,poids:16,tel:"78 XXX XX XX",classe:ing3info}
 ]
 // Une fois qu'une constante a ete declarer, on ne plus le constante = mais
 //on peut faire des modifications, ie ajouter un nouveau enregistrement pour le

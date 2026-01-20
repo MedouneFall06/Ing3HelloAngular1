@@ -1,0 +1,25 @@
+//Methode de recuperation d'une classe dans le formulaire
+
+    // let classe:Classe=ing1info.id==classeId?ing1info : (ing2info.id==classeId?ing2info : ing3info)
+    let classe:Classe|undefined;
+
+    if(classeId==ing1info.id){
+      classe=ing1info;
+    }else if (classeId==ing2info.id){
+      classe=ing2info;
+    }else {
+      classe=ing3info;
+    }
+    // On cree un etudiant ici:
+    if (prenom && nom && tel && inscrit ) {
+      const etudiant: Etudiant = {
+        prenom: prenom,
+        nom: nom,
+        tel: tel,
+        inscrit:inscrit,
+        classe: classe
+      }
+      // On ajoute l'etudiant a la liste des etudiant
+      ETUDIANTS.push(etudiant)
+      //On affiche l'etudiant dans la page etudiants
+      this.router.navigate(['classes',classe.id,'etudiants'])
